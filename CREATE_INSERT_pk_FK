@@ -1,0 +1,24 @@
+CREATE TABLE products1(
+id serial PRIMARY KEY,
+					 product_name character varying(200),
+					 expiry_date date);
+					 
+					 
+INSERT INTO products1(product_name,expiry_date) values('Iphone','2025-12-12');
+
+INSERT INTO products1(product_name,expiry_date) values('redmie','2025-12-12'),
+													   ('coolpd','2025-12-12'),
+													  ('realme','2025-12-12'),
+														('samsu','2025-12-12');
+														
+select * from products1
+
+CREATE TABLE ORDERS(ID SERIAL PRIMARY KEY,
+					PRODUCT_ID INTEGER REFERENCES PRODUCTS1(ID),
+					QUANTITY INTEGER);
+					
+INSERT INTO ORDERS (PRODUCT_ID,QUANTITY,ORDER_DATE)VALUES(NULL,100,NULL);
+SELECT * FROM ORDERS
+
+ALTER TABLE ORDERS ADD COLUMN ORDER_DATE DATE DEFAULT NOW() NOT NULL;
+
